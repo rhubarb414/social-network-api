@@ -1,5 +1,5 @@
 const connection = require("../config/connection");
-const { Thought } = require("../models");
+const { Thought, User } = require("../models");
 
 connection.on("error", (err) => err);
 
@@ -16,7 +16,16 @@ connection.once("open", async () => {
   ];
 
   await Thought.collection.insertMany(thoughts);
-
   console.info("Thoughts added");
+
+  //Drop existing students
+  await User.deleteMany({});
+
+  await User.collection.insertOne({
+    username: "Baboon",
+    email: "monkey@zoo.net",
+  });
+  console.info("Student added");
+
   process.exit(0);
 });
