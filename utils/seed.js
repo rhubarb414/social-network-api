@@ -9,11 +9,14 @@ connection.once("open", async () => {
   // Drop existing thoughts
   await Thought.deleteMany({});
 
-  await Thought.collection.insertOne({
-    thoughtText: "Example thought 1",
-    username: "Christopher DuBois",
-  });
+  const thoughts = [
+    { thoughtText: "Example thought 1", username: "Christopher DuBois" },
+    { thoughtText: "Another example thought", username: "bigbug" },
+    { thoughtText: "I wonder what you think about this", username: "oofus212" },
+  ];
 
-  console.info("Thought added");
+  await Thought.collection.insertMany(thoughts);
+
+  console.info("Thoughts added");
   process.exit(0);
 });
