@@ -42,10 +42,10 @@ thoughtSchema.virtual("reactionCount").get(function () {
 });
 
 const reactionSchema = new Schema({
-  reactionId: {
-    type: ObjectId,
-    default: new ObjectId(),
-  },
+  // reactionId: {
+  //   type: ObjectId,
+  //   default: new ObjectId(),
+  // },
   reactionBody: {
     type: String,
     required: true,
@@ -62,3 +62,8 @@ const reactionSchema = new Schema({
 });
 
 //need a getter method to format the timestamp on query
+
+//export model
+const Thought = model("thought", thoughtSchema);
+
+module.exports = Thought;
