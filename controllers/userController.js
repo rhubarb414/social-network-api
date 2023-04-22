@@ -1,14 +1,15 @@
 const { User } = require("../models");
 
 module.exports = {
-  getUsers(req, res) {
+  getAllUsers(req, res) {
     User.find()
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
-  getUserById(req, res) {
+  getUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .then((user) =>
+        // trying a ternary from the miniproj instead of an if statement
         !user
           ? res
               .status(404)

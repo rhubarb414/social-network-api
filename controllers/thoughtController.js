@@ -13,6 +13,7 @@ module.exports = {
     Thought.findOne({ _id: req.params.thoughtId })
       .then((thought) => {
         if (!thought) {
+          // 404 only sent if ID matches proper ID format. Otherwise 500 catch err sent.
           res.status(404).json({
             message: `Thought ID ${req.params.thoughtId} does not exist`,
           });
