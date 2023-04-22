@@ -21,11 +21,13 @@ connection.once("open", async () => {
   //Drop existing students
   await User.deleteMany({});
 
-  await User.collection.insertOne({
-    username: "Baboon",
-    email: "monkey@zoo.net",
-  });
-  console.info("Student added");
+  const users = [
+    { username: "Baboon", email: "monkey@zoo.net" },
+
+    { username: "GorillaManana", email: "silverback@gmail.com" },
+  ];
+  await User.collection.insertMany(users);
+  console.info("Users added");
 
   process.exit(0);
 });
