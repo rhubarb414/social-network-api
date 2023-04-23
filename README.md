@@ -6,7 +6,8 @@ This is the back end for a blog-like social network where users and post thought
 
 The acceptance criteria was as follows:
 
-````AS A social media startup
+```
+AS A social media startup
 I WANT an API for my social network that uses a NoSQL database
 SO THAT my website can handle large amounts of unstructured data
 
@@ -22,7 +23,8 @@ WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete users and thoughts in my database
 
 WHEN I test API POST and DELETE routes in Insomnia
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list```
+THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
+```
 
 ## Installation
 
@@ -34,7 +36,6 @@ To interact with the app, users will need a client API such as Insomnia. From th
 
 [Demo](https://drive.google.com/file/d/1QBVUXvonR0XDv78iZkk5TYSYZkNr78I6/view?usp=sharing)
 
-
 ## Credits
 
 - User email validation reg ex was modified from [https://regexr.com/3e48o](https://regexr.com/3e48o)
@@ -42,5 +43,3 @@ To interact with the app, users will need a client API such as Insomnia. From th
 ## License
 
 Code is under the MIT license. See documentation in repo.
-
-````
