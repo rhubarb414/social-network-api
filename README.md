@@ -32,6 +32,9 @@ Users will need to install dependences in the terminal using 'npm i' and then st
 
 To interact with the app, users will need a client API such as Insomnia. From there, you can make CRUD requests. See the following video demo:
 
+[Demo](https://drive.google.com/file/d/1QBVUXvonR0XDv78iZkk5TYSYZkNr78I6/view?usp=sharing)
+
+
 ## Credits
 
 - User email validation reg ex was modified from https://regexr.com/3e48o
