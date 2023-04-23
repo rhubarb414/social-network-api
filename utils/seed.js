@@ -9,7 +9,7 @@ connection.once("open", async () => {
   // Drop existing thoughts
   await Thought.deleteMany({});
 
-  //Drop existing students
+  // Drop existing students
   await User.deleteMany({});
 
   const users = [
@@ -31,47 +31,6 @@ connection.once("open", async () => {
 
   await Thought.collection.insertMany(thoughts);
   console.info("Thoughts added");
-
-  //   const dbThoughtData = await Thought.find();
-  //   //   console.log(dbThoughtData);
-
-  //   setTimeout(() => {
-  //     Thought.find().forEach(async (thought) => {
-  //       console.log(thought);
-  //       await User.findOneAndUpdate(
-  //         { username: thought.username },
-  //         { $addToSet: { thoughts: thought._id } },
-  //         { new: true }
-  //       );
-  //     });
-  //   }, "1000");
-
-  //   for (let index = 0; index < dbThoughtData.length; index++) {
-  //     User.findOneAndUpdate(
-  //       { username: dbThoughtData[index].username },
-  //       { $addToSet: { thoughts: dbThoughtData[index]._id } },
-  //       { new: true }
-  //     );
-  //   }
-  //   dbThoughtData.forEach((thought) => {
-  //     User.findOneAndUpdate(
-  //       { username: thought.username },
-  //       { $addToSet: { thoughts: thought._id } },
-  //       { new: true }
-  //     );
-  //   });
-
-  // Thought.collection.forEach(async (thought) => {
-  //   await User.collection.findOneAndUpdate(
-  //     { username: thought.username },
-  //     { $addToSet: { thoughts: thoughts._id } }
-  //   );
-  // });
-  //   await User.collection.updateMany(
-  //     { username: thoughts.username },
-  //     { $addToSet: { thoughts: thoughts._id } }
-  //   );
-  //   console.info("User thoughts arrays updated");
 
   await process.exit(0);
 });

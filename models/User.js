@@ -1,37 +1,49 @@
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    // does this work? delete
-    match: [
-      /^[\w-\.\+]+@([\w-]+\.)+[\w-]{2,4}$/,
-      `Please use format "name@email.com".`,
+const userSchema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [
+        /^[\w-\.\+]+@([\w-]+\.)+[\w-]{2,4}$/,
+        `Please use format "name@email.com".`,
+      ],
+    },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "thought",
+      },
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "user",
+      },
     ],
   },
-  thoughts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "thought",
+  {
+    toJSON: {
+      virtuals: true,
     },
-  ],
-  friends: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "user",
-    },
-  ],
+    id: false,
+  }
+);
+
+// Return number of reactions on a thought.
+userSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
 });
 
-//export model
+// Export model
 const User = model("user", userSchema);
 
 module.exports = User;
