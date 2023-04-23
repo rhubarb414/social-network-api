@@ -26,7 +26,7 @@ Video reqs:
 
 - xxx Put, Post, Delete for thoughts
 
-- Post, Delete for user friend list
+- xxx Post, Delete for user friend list
 
 - xxx Post, Delete for reactions to thoughts
 

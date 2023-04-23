@@ -28,4 +28,9 @@ const reactionSchema = new Schema(
   }
 );
 
+// Format timestamp
+reactionSchema.virtual("formatDate").get(function () {
+  return this.createdAt.toString();
+});
+
 module.exports = reactionSchema;
