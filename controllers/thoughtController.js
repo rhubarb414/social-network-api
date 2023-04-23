@@ -37,6 +37,7 @@ module.exports = {
           { new: true }
         );
       })
+      // Can't get this error to trip. If no user, goes straight 500 catch
       .then((user) =>
         !user
           ? res
@@ -68,7 +69,18 @@ module.exports = {
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: `Thought not found` })
-          : res.json({ message: `Thought successfully deleted.` })
+          : User.findOneAndUpdate(
+              { thoughts: req.params.thoughtId },
+              { $pull: { thoughts: req.params.thoughtId } },
+              { new: true }
+            )
+      )
+      .then((user) =>
+        !user
+          ? res.status(404).json({
+              message: "Thought deleted but author username not found",
+            })
+          : res.json({ message: "Thought successfully deleted!" })
       )
       .catch((err) => res.status(500).json(err));
   },
