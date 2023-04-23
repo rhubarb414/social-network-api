@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const Reaction = require("./Reaction");
 
 const thoughtSchema = new Schema(
   {
@@ -16,12 +17,7 @@ const thoughtSchema = new Schema(
       type: String,
       required: true,
     },
-    reactions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "reaction",
-      },
-    ],
+    reactions: [Reaction],
   },
   {
     toJSON: {
@@ -41,25 +37,25 @@ thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
 
-const reactionSchema = new Schema({
-  // reactionId: {
-  //   type: ObjectId,
-  //   default: new ObjectId(),
-  // },
-  reactionBody: {
-    type: String,
-    required: true,
-    maxLength: 280,
-  },
-  username: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+// const reactionSchema = new Schema({
+//   reactionId: {
+//     type: Schema.Types.ObjectId,
+//     default: () => new Types.ObjectId(),
+//   },
+//   reactionBody: {
+//     type: String,
+//     required: true,
+//     maxLength: 280,
+//   },
+//   username: {
+//     type: String,
+//     required: true,
+//   },
+//   createdAt: {
+//     type: Date,
+//     default: Date.now,
+//   },
+// });
 
 //need a getter method to format the timestamp on query
 
