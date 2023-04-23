@@ -26,4 +26,37 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
+  // Add new thought
+  createThought(req, res) {
+    Thought.create(req.body)
+      .then((dbThoughtData) => res.json(dbThoughtData))
+      .catch((err) => res.status(500).json(err));
+  },
+  // Update thought
+  updateThought(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $set: req.body },
+      { new: true }
+    )
+      .then((thought) =>
+        !thought
+          ? res
+              .status(404)
+              .json({ message: `Thought ${req.params.thoughtId} not found` })
+          : res.json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
+  // Delete thought
+  deleteThought(req, res) {
+    Thought.findOneAndDelete({ _id: req.params.thoughtId })
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: `Thought not found` })
+          : res.json({ message: `Thought successfully deleted.` })
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 };

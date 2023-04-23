@@ -22,7 +22,7 @@ Video reqs:
 
 - xxx Get single user, get single thought
 
-- Put, Post, Delete for users
+- xxx Put, Post, Delete for users
 
 - Put, Post, Delete for thoughts
 

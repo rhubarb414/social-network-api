@@ -31,6 +31,7 @@ module.exports = {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $set: req.body },
+      //run email validator, and return updated object
       { runValidators: true, new: true }
     )
       .then((user) =>
