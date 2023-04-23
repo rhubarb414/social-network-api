@@ -18,11 +18,9 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 Video reqs:
 
-- ```Get all users, get all thoughts
+- xxx Get all users, get all thoughts
 
-  ```
-
-- Get single user, get single thought
+- xxx Get single user, get single thought
 
 - Put, Post, Delete for users
 
