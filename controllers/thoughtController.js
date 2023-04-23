@@ -103,4 +103,19 @@ module.exports = {
   },
 
   // Delete reaction
+  deleteReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.body.reactionId } } },
+      { runValidators: true, new: true }
+    )
+      .then((thought) =>
+        !thought
+          ? res
+              .status(404)
+              .json({ message: `Thought ${req.params.thoughtId} not found` })
+          : res.json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 };
