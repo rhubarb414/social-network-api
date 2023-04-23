@@ -43,18 +43,33 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
   // Delete user
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
-      .then(
-        (user) =>
-          !user
-            ? res.status(404).json({ message: `User not found` })
-            : Thought.deleteMany({ _id: { $in: user.thoughts } })
-
-        // : res.json({ message: `User successfully deleted.` })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: `User not found` })
+          : Thought.deleteMany({ _id: { $in: user.thoughts } })
       )
       .then(() => res.json({ message: "User profile and throughts deleted" }))
+      .catch((err) => res.status(500).json(err));
+  },
+
+  // Add friend
+  createFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $addToSet: { friends: req.params.friendId } },
+      { new: true }
+    )
+      .then((user) =>
+        !user
+          ? res
+              .status(404)
+              .json({ message: `User ${req.params.userId} not found` })
+          : res.json(user)
+      )
       .catch((err) => res.status(500).json(err));
   },
 };

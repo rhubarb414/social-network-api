@@ -28,6 +28,6 @@ Video reqs:
 
 - Post, Delete for user friend list
 
-- Post, Delete for reactions to thoughts
+- xxx Post, Delete for reactions to thoughts
 
 email validation reg ex modified from https://regexr.com/3e48o
