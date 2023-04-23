@@ -27,6 +27,7 @@ const thoughtSchema = new Schema(
   }
 );
 
+// Format timestamp
 thoughtSchema.virtual("formatDate").get(function () {
   return this.createdAt.toString();
 });
@@ -36,7 +37,7 @@ thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
 
-//export model
+// Export model
 const Thought = model("thought", thoughtSchema);
 
 module.exports = Thought;

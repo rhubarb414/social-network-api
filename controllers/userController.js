@@ -11,7 +11,7 @@ module.exports = {
   getUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .then((user) =>
-        // trying a ternary from the miniproj instead of an if statement
+        // Trying a ternary from the miniproj instead of an if statement
         !user
           ? res
               .status(404)
@@ -31,7 +31,7 @@ module.exports = {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $set: req.body },
-      //run email validator, and return updated object
+      // Run email validator, and return updated object
       { runValidators: true, new: true }
     )
       .then((user) =>

@@ -20,17 +20,5 @@ connection.once("open", async () => {
   await User.collection.insertMany(users);
   console.info("Users added");
 
-  const thoughts = [
-    { thoughtText: "Example thought 1", username: "Baboon" },
-    { thoughtText: "Another example thought", username: "GorillaManana" },
-    {
-      thoughtText: "I wonder what you think about this",
-      username: "Daisy1000",
-    },
-  ];
-
-  await Thought.collection.insertMany(thoughts);
-  console.info("Thoughts added");
-
   await process.exit(0);
 });

@@ -38,7 +38,7 @@ const userSchema = new Schema(
   }
 );
 
-// Return number of reactions on a thought.
+// Return number of friends.
 userSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });

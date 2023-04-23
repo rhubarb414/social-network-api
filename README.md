@@ -1,4 +1,12 @@
-AS A social media startup
+# Social Network API
+
+## Description
+
+This is the back end for a blog-like social network where users and post thoughts, react to thoughts, and add one another as friends. It uses MongoDB and Mongoose to create a non-relational database. Aside from giving me practice building databases, it also provided more practice with the MVC framework. It's a lot more files and folders than I've used before, but I enjoy how compartmentalized everything is, and I can see the benefit for scaling and updating code in the future.
+
+The acceptance criteria was as follows:
+
+````AS A social media startup
 I WANT an API for my social network that uses a NoSQL database
 SO THAT my website can handle large amounts of unstructured data
 
@@ -14,20 +22,22 @@ WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete users and thoughts in my database
 
 WHEN I test API POST and DELETE routes in Insomnia
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
+THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list```
 
-Video reqs:
+## Installation
 
-- xxx Get all users, get all thoughts
+Users will need to install dependences in the terminal using 'npm i' and then start the app with "node server.js."
 
-- xxx Get single user, get single thought
+## Usage
 
-- xxx Put, Post, Delete for users
+To interact with the app, users will need a client API such as Insomnia. From there, you can make CRUD requests. See the following video demo:
 
-- xxx Put, Post, Delete for thoughts
+## Credits
 
-- xxx Post, Delete for user friend list
+- User email validation reg ex was modified from https://regexr.com/3e48o
 
-- xxx Post, Delete for reactions to thoughts
+## License
 
-email validation reg ex modified from https://regexr.com/3e48o
+Code is under the MIT license. See documentation in repo.
+
+````
